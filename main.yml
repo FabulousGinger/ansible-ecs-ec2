@@ -7,6 +7,10 @@
 
   tasks:
 
+    - name: installing epel-release
+      yum:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
     - name: installing the latest version of the packages
       yum:
         name: "{{ packages }}"
