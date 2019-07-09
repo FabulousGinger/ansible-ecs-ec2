@@ -4,17 +4,19 @@
   hosts: 127.0.0.1
   connection: local
   gather_facts: false
-  
+
   tasks:
 
-    - name: installing troubleshooting packages
+    - name: installing the latest version of the packages
       yum:
         name: "{{ packages }}"
+        state: latest
       vars:
         packages:
         - htop
         - vim
         - ncdu
+        - ecs-init
 
     - name: |
         Ensure a job that runs at 04 (08 EST) exists.
